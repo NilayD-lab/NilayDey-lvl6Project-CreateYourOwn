@@ -5,8 +5,6 @@ acornImg.style.left = '0%'
 acornImg.style.opacity = '1'
 let slogan = document.getElementById('slogan')
 slogan.style.opacity = '1'
-
-
 let title = document.getElementById('title')
 let count = 0
 
