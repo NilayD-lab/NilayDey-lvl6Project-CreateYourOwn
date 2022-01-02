@@ -91,71 +91,30 @@
 
  #second-page{
     display: grid;
-    padding-left: 10%;
-    grid-template-columns: repeat(3, 30%);
+    padding-left: 13%;
+    grid-template-columns: repeat(3, 28%);
     grid-template-rows: repeat(3, 15vw);
     align-items: center;
     justify-items: center;
 }
-#campus-grid{
-    grid-row: 1;
-    grid-column: 2;
+
+
+.gridling{
     position: relative;
+    grid-row: var(--row);
+    grid-column: var(--col);
 }
-#campus-grid::before{
+.gridling::before{
     content: "";
     width: 11vw;
     height: 11vw;
     position: absolute;
     top: 0%;
     left: 0%;
-    background-color: rgb(243, 208, 11);
+    background-color: rgb(241, 205, 1);
     border-radius: 10px;
     animation: rotate 5000ms ease-in infinite;
 }
-/* #campus-container::after{
-    content: "";
-    position: absolute;
-    width: 11vw;
-    height: 11vw;
-    top: -5%;
-    left: 14%;
-    background-color: gold;
-    z-index: -1;
-    transform: rotate(45deg);
-} */
-#para1{
-    width: 100%;
-    grid-row: 1;
-    grid-column: 3;
-}
-
-
-#test-container{
-    grid-row: 2;
-    grid-column: 3;
-}
-
-#para2{
-    width: 100%;
-    grid-row: 2;
-    grid-column: 2;
-}
-#ceo-container{
-    grid-row: 2;
-    grid-column: 1;
-}
-#para3{
-    width: 100%;
-    grid-row: 3;
-    grid-column: 3;
-}
-
-#tiktok-container{
-    grid-row: 3;
-    grid-column: 2;
-}
-
 .diamond{
     width: 10vw;
     height: 10vw;
@@ -163,53 +122,35 @@
     transform: rotate(45deg);
     overflow: hidden;
     position: relative;
-    border: 10px solid rgb(255, 225, 55);
+    border: 10px solid rgba(243, 208, 11, 0.932);
     border-radius: 10px;
 
 
 }
 
-#campus-container::after{
+.diamond::after{
     content: "";
     display: block;
-    background: url('./campus.jpg') no-repeat center center/cover;
+    background: var(--image) no-repeat center center/cover;
     position: absolute;
     width: 15vw;
-    height: 15vw;
-    transform: rotate(-45deg);
-    top: -30%;
-    left: -25%;
+    height: 100%;
+    transform: rotate(-45deg) scale(var(--scale));
+    top: var(--topShift);
+    left: var(--leftShift);
+ 
 }
-.diamond img{
-    /* width: 15vw;
-    transform: scale(1.7); */
-    width: 100%;
-    object-fit: fill;
-    transform: rotate(-45deg);
 
-    
-}
-/* img[src = "campus.jpg"] { 
-    transform: scale(1.4);
-    clip-path: polygon(50% 0, 85% 50%, 50% 100%, 16% 50%);
-}
-img[src = "test.jpg"]{
-    clip-path: polygon(50% 0, 80% 50%, 50% 100%, 20% 50%);
 
-}
-img[src = "CEO.jpg"]{
-    clip-path: polygon(50% 0, 80% 50%, 50% 100%, 20% 50%);
-}
-img[src = "Tiktok_logo.jpg"]{
-    clip-path: polygon(50% 0, 80% 50%, 50% 100%, 20% 50%);
-
-  
-} */
 
 .paragraph{
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 1.2rem;
+    width: 100%;
+    grid-row: var(--row);
+    grid-column: var(--col);
 }
 
 @keyframes rotate {
