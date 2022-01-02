@@ -25,6 +25,13 @@ let titleAniamtion = setInterval(() => {
 
 }, 40)
 
+window.onscroll = (event)=>{
+   if (window.scrollY>0){
+       console.log(window.scrollY)
+   }
+}
+
+
 
 
 
