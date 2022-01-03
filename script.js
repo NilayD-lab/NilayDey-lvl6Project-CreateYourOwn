@@ -16,10 +16,8 @@ for (let i = 0; i < "College Board".length; i++) {
 
 let titleLetters = title.querySelectorAll('span')
 titleLetters[0].classList.add('reveal-letter')
-
 console.log(titleLetters)
 let titleAniamtion = setInterval(() => {
-    console.log(count)
     if (count == titleLetters.length - 1) clearInterval(titleAniamtion)
     titleLetters[count].style.opacity = '1'
     count++
@@ -41,18 +39,27 @@ window.onscroll = (event) => {
         }
     }
 }
-// window.onmousedown = (e)=>{
-//     for (let i = 0; i < paragraphs.length; i++) {
-//         paragraphs[i].style.setProperty('--scale', 1)
 
-//     }
-// }
-// window.onmouseup = ()=>{
-//     for (let i = 0; i < paragraphs.length; i++) {
-//         paragraphs[i].style.setProperty('--scale', 0)
+let options = document.querySelectorAll('.option')
+let donationBar = document.getElementById('donation-bar')
+let barHeight = 20
+for (let i = 0; i < options.length; i++) {
+    options[i].onclick = () => {
+        barHeight += i * 2
+        console.log(Math.round(barHeight/10))
+        console.log(returnBarColor(barHeight))
+        donationBar.style.setProperty('--bar-height', barHeight + '%')
+        donationBar.style.setProperty('--bar-color', returnBarColor(barHeight))
+    }
+}
+function returnBarColor(barHeight) {
+    let arr = ['background: linear-gradient(135deg, rgba(245,108,108,1) 0%, rgba(203,42,21,1) 74%, rgba(195,16,16,1) 100%)', 'linear-gradient(135deg, rgba(255,186,8,1) 0%, rgba(203,112,21,1) 32%, rgba(170,51,0,1) 100%)', 'linear-gradient(135deg, rgba(249,255,8,1) 0%, rgba(203,112,21,1) 77%, rgba(170,51,0,1) 100%)', 'linear-gradient(135deg, rgba(255,252,0,1) 0%, rgba(119,228,0,1) 28%, rgba(8,255,115,1) 100%)', 'linear-gradient(135deg, rgba(151,255,0,1) 0%, rgba(54,228,0,1) 52%, rgba(8,150,255,1) 100%)', 'linear-gradient(135deg, rgba(0,255,106,1) 0%, rgba(0,227,228,1) 46%, rgba(8,150,255,1) 100%)', 'linear-gradient(135deg, rgba(0,52,255,1) 8%, rgba(195,0,228,1) 62%, rgba(255,8,46,1) 100%)']
+    return arr[Math.round((barHeight-20)/10)]
 
-//     }
-// }
+
+
+}
+
 
 
 
