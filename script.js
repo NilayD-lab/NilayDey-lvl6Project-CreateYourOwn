@@ -13,6 +13,7 @@ for (let i = 0; i < "College Board".length; i++) {
 
 }
 
+
 let titleLetters = title.querySelectorAll('span')
 titleLetters[0].classList.add('reveal-letter')
 
@@ -24,12 +25,34 @@ let titleAniamtion = setInterval(() => {
     count++
 
 }, 40)
+let paragraphs = document.querySelectorAll('.paragraph')
 
-window.onscroll = (event)=>{
-   if (window.scrollY>0){
-       console.log(window.scrollY)
-   }
+window.onscroll = (event) => {
+    if (window.scrollY > 778 && window.scrollY < 1444) {
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.setProperty('--scale', 1)
+
+        }
+    }
+    else {
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.setProperty('--scale', 0)
+
+        }
+    }
 }
+// window.onmousedown = (e)=>{
+//     for (let i = 0; i < paragraphs.length; i++) {
+//         paragraphs[i].style.setProperty('--scale', 1)
+
+//     }
+// }
+// window.onmouseup = ()=>{
+//     for (let i = 0; i < paragraphs.length; i++) {
+//         paragraphs[i].style.setProperty('--scale', 0)
+
+//     }
+// }
 
 
 

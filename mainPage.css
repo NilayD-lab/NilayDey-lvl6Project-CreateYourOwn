@@ -7,6 +7,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+    overflow-x: hidden;
 }
 
 #first-page{
@@ -118,7 +119,7 @@
     left: 0%;
     background-color: rgb(241, 205, 1);
     border-radius: 10px;
-    animation: rotate 5000ms ease-in infinite;
+    animation: rotate 10000ms ease-in infinite;
 }
 .diamond{
     width: 10vw;
@@ -156,13 +157,80 @@
     width: 100%;
     grid-row: var(--row);
     grid-column: var(--col);
+    position: relative;
+    --scale: 0;
+
+}
+
+#p1::after{
+    content: "";
+    z-index: -4;
+    position: absolute;
+    width: 70vw;
+    height: 10vw;
+    transform: rotate(65deg) scaleX(var(--scale));
+    background-color: rgb(100, 155, 226);
+    top: 170%;
+    left: -70%;
+    border-radius: 30px;
+    transition: transform 700ms;
+    border: 3px solid white;
+
+}
+
+#p2::after{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 70vw;
+    height: 10vw;
+    transform: rotate(105deg) scaleX(var(--scale));
+    background-color: rgb(100, 155, 226);
+    top: -80%;
+    left: -200%;
+    border-radius: 30px;
+    transition: transform 700ms 600ms;
+    border: 3px solid white;
+
+}
+
+#p2::before{
+    content: "";
+    z-index: -1;
+    position: absolute;
+    width: 120vw;
+    height: 10vw;
+    transform: rotate(-20deg) scaleX(var(--scale));
+    background-color: rgb(100, 155, 226);
+    top: -380%;
+    left: -200%;
+    border-radius: 30px;
+    transition: transform 700ms 200ms;
+    border: 3px solid white ;
+
+}
+#p3::after{
+    content: "";
+    z-index: -2;
+    position: absolute;
+    width: 110vw;
+    height: 10vw;
+    transform: rotate(-5deg) scaleX(var(--scale));
+    background-color: rgb(100, 155, 226);
+    top: 0%;
+    left: -270%;
+    border-radius: 30px;
+    transition: transform 700ms 400ms;
+    border: 3px solid white;
+
+    
 }
 
 @keyframes rotate {
     0%{
         transform: rotate(0deg);
     }
-    20%{
+    12%{
         transform: rotate(90deg);
     }
     100%{
@@ -199,7 +267,7 @@
     height: var(--bar-height);
     background: var(--bar-color);
     position: absolute;
-    bottom: 0px;
+    bottom:-1px;
     left: 0px;
     transition: height 500ms ease;
     border-radius: 15px;
