@@ -62,34 +62,54 @@
 
 
 #scroll-bar{
+    --height: 10vh;
     position: fixed;
+    height: var(--height);
+    width: 5vw;
+    top: 90vh;
+    left: 3vw;
+    transform: translateY(calc(-1 * var(--height)));
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+}
+
+.arrow{
+    position: absolute;
+
     width: 100px;
     height: 100px;
     border-radius: 50%;
     box-shadow: 0 0 7px black;
-    background-color: #f5f3f127;
-    top: 80vh;
-    left: 3vw;
+    background-color: #f5f5f5;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 4rem;
+    cursor: pointer;
     transition: box-shadow 300ms ease;
 }
-#scroll-bar:hover{
+.arrow:hover{
     box-shadow: 0 0 12px black;
 }
-#scroll-bar::after{
+.arrow::after{
     content: "";
     border: solid black;
     border-width: 0 10px 10px 0;
     display: inline-block;
     padding: 10px;
-    transform: rotate(45deg);
-    -webkit-transform: rotate(45deg);
+    transform: rotate(var(--rotate));
+    -webkit-transform: rotate(var(--rotate));
 }
-
+#up-arr{
+    top: -5%;
+    z-index: 0;
+}
+#down-arr{
+    bottom: -5%;
+    z-index: 2
+}
 @keyframes move-in {
     0%{
         width: 70%;
