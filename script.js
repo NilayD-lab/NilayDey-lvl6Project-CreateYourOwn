@@ -24,20 +24,7 @@ let titleAniamtion = setInterval(() => {
 }, 40)
 let paragraphs = document.querySelectorAll('.paragraph')
 
-window.onscroll = (event) => {
-    if (window.scrollY > 778 && window.scrollY < 1444) {
-        for (let i = 0; i < paragraphs.length; i++) {
-            paragraphs[i].style.setProperty('--scale', 1)
-        }
-    }
-    else {
-        for (let i = 0; i < paragraphs.length; i++) {
-            paragraphs[i].style.setProperty('--scale', 0)
 
-        }
-    }
-
-}
 
 
 let options = document.querySelectorAll('.option')
@@ -59,18 +46,47 @@ function returnBarColor(barHeight) {
     return arr[Math.round((barHeight-20)/10)-1]
 }
 
-// let scrollbar = document.getElementById('scroll-bar')
-// scrollbar.innerHTML = ""
-// let currentPage = 0
-// scrollbar.onclick = ()=>{
-//     let pageLocation = [0, 930, 2000]
-//     currentPage++
-//     if (currentPage>2){
-//         currentPage = 2
-//     }
-//     window.scroll(0, pageLocation[currentPage])
-// }
+let scrollbar = document.getElementById('scroll-bar')
+let downArr = document.getElementById('down-arr')
+let upArr = document.getElementById('up-arr')
+let currentPage = 0
+let pageLocation = [0, 930, 2000]
+downArr.onclick = ()=>{
+    currentPage++
+    if (currentPage>2){
+        currentPage = 2
+    }
+    window.scroll(0, pageLocation[currentPage])
+}
+upArr.onclick = ()=>{
+    currentPage--
+    if (currentPage<0){
+        currentPage = 0
+    }
+    window.scroll(0, pageLocation[currentPage])
+}
 
+let height = 0
+window.onscroll = (event) => {
+    if (window.scrollY > 778 && window.scrollY < 1444) {
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.setProperty('--scale', 1)
+        }
+    }
+    else {
+        for (let i = 0; i < paragraphs.length; i++) {
+            paragraphs[i].style.setProperty('--scale', 0)
 
+        }
+    }
+
+    //2427.5
+    
+    if (height<100*(window.scrollY/document.body.clientHeight) + 10){
+       scrollbar.style.setProperty('--height', 100*(window.scrollY/document.body.clientHeight) + 10 +'vh') 
+       height = 100*(window.scrollY/document.body.clientHeight) + 10
+    }
+    
+}
 
 
