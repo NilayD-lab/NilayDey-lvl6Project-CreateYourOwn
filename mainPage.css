@@ -62,10 +62,10 @@
 
 
 #scroll-bar{
-    --height: 10vh;
+    --height: 2vh;
     position: fixed;
     height: var(--height);
-    width: 5vw;
+    width: 90px;
     top: 90vh;
     left: 3vw;
     transform: translateY(calc(-1 * var(--height)));
@@ -103,11 +103,11 @@
     -webkit-transform: rotate(var(--rotate));
 }
 #up-arr{
-    top: -5%;
+    top: -40px;
     z-index: 0;
 }
 #down-arr{
-    bottom: -5%;
+    bottom: -40px;
     z-index: 2
 }
 @keyframes move-in {
